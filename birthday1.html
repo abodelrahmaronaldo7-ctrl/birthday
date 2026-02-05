@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>عيد ميلاد سعيد 🎂</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: #d32f2f; /* أحمر */
+  color:white;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 30px;
+  font-size: 40px;
+}
+
+#cake {
+  margin: 20px auto;
+  width: 250px;
+}
+
+#age {
+  font-size: 28px;
+  margin: 30px 0;
+}
+
+.time-box {
+  display: inline-block;
+  margin: 0 15px;
+}
+.time-box span {
+  display:block;
+  font-size: 40px;
+  font-weight: bold;
+}
+.time-box p {
+  margin:0;
+  font-size:18px;
+}
+
+.text{
+  margin:30px 20px;
+  font-size:20px;
+  line-height:1.6;
+}
+a {
+  display:inline-block;
+  margin-top:30px;
+  font-size:20px;
+  color:yellow;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎉 عيد ميلاد سعيد! 🎉</h1>
+<img id="cake" src="cake.png" alt="تورتة العيد ميلاد">
+
+<!-- العداد -->
+<div id="age">
+  <div class="time-box">
+    <span id="years">0</span>
+    <p>سنة</p>
+  </div>
+  <div class="time-box">
+    <span id="months">0</span>
+    <p>شهر</p>
+  </div>
+  <div class="time-box">
+    <span id="days">0</span>
+    <p>يوم</p>
+  </div>
+  <div class="time-box">
+    <span id="hours">0</span>
+    <p>ساعة</p>
+  </div>
+  <div class="time-box">
+    <span id="minutes">0</span>
+    <p>دقيقة</p>
+  </div>
+  <div class="time-box">
+    <span id="seconds">0</span>
+    <p>ثانية</p>
+  </div>
+</div>
+
+<!-- الموسيقى -->
+<audio id="music" autoplay loop>
+  <source src="birthday_song.mp3" type="audio/mpeg">
+  المتصفح لا يدعم تشغيل الصوت
+</audio>
+
+<div class="text">
+كل سنة وانتي طيبة ❤️  
+ربنا يخليكي ليا دايمًا ويحققلك كل اللي نفسك فيه.
+</div>
+
+<!-- رابط للصور -->
+<a href="birthday2.html">⬇️ شاهد صور عيد الميلاد</a>
+
+<script>
+function updateAge(){
+  var birthDate = new Date("Feb 21, 2008 00:00:00");
+  var now = new Date();
+
+  var diff = now - birthDate;
+  var seconds = Math.floor(diff / 1000);
+  var minutes = Math.floor(seconds / 60);
+  var hours = Math.floor(minutes / 60);
+
+  var years = now.getFullYear() - birthDate.getFullYear();
+  var months = now.getMonth() - birthDate.getMonth();
+  if(months < 0){
+    years--;
+    months += 12;
+  }
+
+  var birthDayThisMonth = new Date(now.getFullYear(), now.getMonth(), birthDate.getDate());
+  var daysLeft = Math.floor((now - birthDayThisMonth)/(1000*60*60*24));
+  if(daysLeft < 0) daysLeft = 0;
+
+  var hoursLeft = hours % 24;
+  var minutesLeft = minutes % 60;
+  var secondsLeft = seconds % 60;
+
+  document.getElementById("years").innerText = years;
+  document.getElementById("months").innerText = months;
+  document.getElementById("days").innerText = daysLeft;
+  document.getElementById("hours").innerText = hoursLeft;
+  document.getElementById("minutes").innerText = minutesLeft;
+  document.getElementById("seconds").innerText = secondsLeft;
+}
+
+setInterval(updateAge, 1000);
+updateAge();
+</script>
+
+</body>
+</html>
