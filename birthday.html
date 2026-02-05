@@ -5,38 +5,41 @@
 <title>عيد ميلاد سعيد 🎂</title>
 
 <style>
-body{
+body {
   text-align:center;
-  font-family:Arial;
+  font-family: Arial, sans-serif;
   background:#111;
   color:white;
   margin:0;
   padding:20px;
 }
 
+/* الحاوية اللي فيها الصور */
+.photos-container {
+  display: flex;
+  flex-wrap: wrap; /* عشان لو الشاشة ضاقت يروحوا لتحت */
+  justify-content: center;
+  gap: 20px; /* مسافة بين الصور */
+}
+
 /* كل صورة مع وصفها */
-.photo{
-  margin:25px 0;
-  width:100%;
-  display:block;
+.photo {
+  width: 250px; /* ثابت لكل صورة */
 }
 
-.photo img{
-  width:90%;
-  max-width:400px;
-  border-radius:15px;
-  display:block;
-  margin:auto;
+.photo img {
+  width: 100%;
+  border-radius: 15px;
 }
 
-.photo p{
-  margin-top:10px;
-  font-size:18px;
-  color:#ddd;
+.photo p {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #ddd;
 }
 
 /* النص الأخير */
-.text{
+.text {
   margin:40px 20px;
   font-size:20px;
   line-height:1.8;
@@ -46,26 +49,29 @@ body{
 
 <body>
 
-<h1>🎂 عيد ميلاد سعيد يا ملك ي اسم مالي الكون ي صفه نادرة الوجود ❤️</h1>
+<h1>🎂 عيد ميلاد سعيد يا ملك ي اعظم اسم في الوجود كككللل سنة وانت احسن من الكل و افضل من الكل   ❤️</h1>
 
-<div class="photo">
-  <img src="1.jpg">
-  <p>اكتب وصف الصورة الأولى هنا</p>
-</div>
+<div class="photos-container">
+  <div class="photo">
+    <img src="1.jpg" alt="صورة 1">
+    <p>وصف الصورة الأولى</p>
+  </div>
 
-<div class="photo">
-  <img src="2.jpg">
-  <p>اكتب وصف الصورة الثانية هنا</p>
-</div>
+  <div class="photo">
+    <img src="2.jpg" alt="صورة 2">
+    <p>وصف الصورة الثانية</p>
+  </div>
 
-<div class="photo">
-  <img src="3.jpg">
-  <p>اكتب وصف الصورة الثالثة هنا</p>
+  <div class="photo">
+    <img src="3.jpg" alt="صورة 3">
+    <p>وصف الصورة الثالثة</p>
+  </div>
 </div>
 
 <div class="text">
 كل سنة وانتي طيبة ❤️  
-وإن شاء الله أيامك تكون مليانة فرحة ونجاح.
+وأجمل حاجة حصلت في حياتي،  
+وربنا يخليكي ليا دايمًا.
 </div>
 
 </body>
