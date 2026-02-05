@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>عيد ميلاد سعيد 🎂</title>
-
 <style>
 body {
   margin:0;
@@ -30,23 +29,24 @@ h1 {
 
 .time-box {
   display: inline-block;
-  margin: 0 15px;
+  margin: 0 10px;
 }
 .time-box span {
   display:block;
-  font-size: 40px;
+  font-size: 36px;
   font-weight: bold;
 }
 .time-box p {
   margin:0;
-  font-size:18px;
+  font-size:16px;
 }
 
 .text{
-  margin:30px 20px;
-  font-size:20px;
-  line-height:1.6;
+  margin:20px 20px;
+  font-size:18px;
+  line-height:1.5;
 }
+
 a {
   display:inline-block;
   margin-top:30px;
@@ -56,7 +56,6 @@ a {
 }
 </style>
 </head>
-
 <body>
 
 <h1>🎉 عيد ميلاد سعيد! 🎉</h1>
@@ -90,7 +89,7 @@ a {
   </div>
 </div>
 
-<!-- الموسيقى -->
+<!-- الأغنية -->
 <audio id="music" autoplay loop>
   <source src="birthday_song.mp3" type="audio/mpeg">
   المتصفح لا يدعم تشغيل الصوت
@@ -109,35 +108,30 @@ function updateAge(){
   var birthDate = new Date("Feb 21, 2008 00:00:00");
   var now = new Date();
 
-  var diff = now - birthDate;
-  var seconds = Math.floor(diff / 1000);
-  var minutes = Math.floor(seconds / 60);
-  var hours = Math.floor(minutes / 60);
+  var totalSeconds = Math.floor((now - birthDate)/1000);
 
   var years = now.getFullYear() - birthDate.getFullYear();
   var months = now.getMonth() - birthDate.getMonth();
-  if(months < 0){
-    years--;
-    months += 12;
-  }
+  var days = now.getDate() - birthDate.getDate();
+  var hours = now.getHours() - birthDate.getHours();
+  var minutes = now.getMinutes() - birthDate.getMinutes();
+  var seconds = now.getSeconds() - birthDate.getSeconds();
 
-  var birthDayThisMonth = new Date(now.getFullYear(), now.getMonth(), birthDate.getDate());
-  var daysLeft = Math.floor((now - birthDayThisMonth)/(1000*60*60*24));
-  if(daysLeft < 0) daysLeft = 0;
-
-  var hoursLeft = hours % 24;
-  var minutesLeft = minutes % 60;
-  var secondsLeft = seconds % 60;
+  if(seconds<0){seconds+=60; minutes--;}
+  if(minutes<0){minutes+=60; hours--;}
+  if(hours<0){hours+=24; days--;}
+  if(days<0){months--; days+=new Date(now.getFullYear(), now.getMonth(), 0).getDate();}
+  if(months<0){months+=12; years--;}
 
   document.getElementById("years").innerText = years;
   document.getElementById("months").innerText = months;
-  document.getElementById("days").innerText = daysLeft;
-  document.getElementById("hours").innerText = hoursLeft;
-  document.getElementById("minutes").innerText = minutesLeft;
-  document.getElementById("seconds").innerText = secondsLeft;
+  document.getElementById("days").innerText = days;
+  document.getElementById("hours").innerText = hours;
+  document.getElementById("minutes").innerText = minutes;
+  document.getElementById("seconds").innerText = seconds;
 }
 
-setInterval(updateAge, 1000);
+setInterval(updateAge,1000);
 updateAge();
 </script>
 
